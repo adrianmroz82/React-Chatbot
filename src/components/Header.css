@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+.header-bar {
+  background: rgb(0, 180, 160);
+  border-radius: 25px 25px 0 0;
+  height: 80px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left-side {
+  margin-left: 5%;
+  color: white;
+}
+
+.fa-android {
+  margin-left: 20px;
+  top: 80;
+}
+
+h3 {
+  font-family: 'Itim', cursive;
+}
+
+.header-right-side {
+  display: flex;
+  flex: 0.4;
+  justify-content: flex-end;
+  margin-right: 5%;
+}
+
+.fa-lg {
+  line-height: normal;
+}

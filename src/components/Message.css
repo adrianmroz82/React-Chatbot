@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Sen&display=swap');
+
+.messages {
+  padding: 5% 0;
+  overflow: auto;
+  flex: auto;
+}
+
+.chatting-window {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 5%;
+  margin-top: 3px;
+}
+
+.text-sent {
+  display: flex;
+  align-items: center;
+  font-family: 'Sen', sans-serif;
+  color: #473f3f;
+  letter-spacing: 0.3px;
+}
+
+.message-container {
+  background: #b1a2a2;
+  border-radius: 20px;
+  padding: 5px 20px;
+  color: white;
+  display: inline-block;
+  max-width: 80%;
+  margin-bottom: 30px;
+}
+
+.message-text {
+  width: 100%;
+  letter-spacing: 0;
+  float: left;
+  font-size: 1.1em;
+  word-wrap: break-word;
+  font-family: 'Sen', sans-serif;
+}
+
+.pl-10 {
+  padding-right: 10px;
+}
+
+.pr-10 {
+  padding-right: 10px;
+}
+
+.bot {
+  justify-content: flex-start;
+}
+
+.client {
+  justify-content: flex-end;
+}
+
+.white-color {
+  color: white;
+}
+
+.black-color {
+  color: black;
+}
+
+.client-background {
+  background: rgb(0, 180, 160);
+}
+
+.bot-background {
+  background: #dfdbdb;
+}
+
+.fa-robot {
+  position: relative;
+}
+
+.flag {
+  height: 20px;
+}
