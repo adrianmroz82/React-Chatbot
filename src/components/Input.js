@@ -1,10 +1,10 @@
-import { useState } from 'react';
-import axios from 'axios';
+import { useState } from "react";
+import axios from "axios";
 
-import './Input.css';
+import "./Input.css";
 
 const Input = (props) => {
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,11 +14,11 @@ const Input = (props) => {
       time: new Date(),
     };
     props.setMsgList([...props.msgList, userMsg]);
-    setMessage('');
+    setMessage("");
 
     axios
       .get(
-        `https://restcountries.eu/rest/v2/name/${message}
+        `https://restcountries.com/v3.1/name/${message}
     `
       )
       .then((res) => {
@@ -28,11 +28,11 @@ const Input = (props) => {
           userMsg,
           {
             content: `
-        ${countryData.name} has a capital in ${countryData.capital}. It is located in ${countryData.region} and is populated by ${countryData.population} people. Fun fact, the Japanese translation of that country is ${countryData.translations.ja} Moreover, you can see the country's flag below.
+        ${countryData.name.common} has a capital in ${countryData.capital}. It is located in ${countryData.region} and is populated by ${countryData.population} people. Fun fact, the Japanese translation of that country is ${countryData.translations.jpn.official} Moreover, you can see the country's flag below.
         `,
             isBot: true,
             time: new Date(),
-            flag: countryData.flag,
+            flag: countryData.flags.svg,
           },
         ]);
       })
