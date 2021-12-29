@@ -3,8 +3,12 @@ import axios from "axios";
 
 import "./Input.css";
 
-const Input = (props) => {
+export const Input = (props) => {
   const [message, setMessage] = useState("");
+
+  const handleChange = (e) => {
+    setMessage(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,22 +21,19 @@ const Input = (props) => {
     setMessage("");
 
     axios
-      .get(
-        `https://restcountries.com/v3.1/name/${message}
-    `
-      )
+      .get(`https://restcountries.com/v3.1/name/${message}`)
       .then((res) => {
-        const countryData = res.data[0];
+        const { name, capital, region, population, translations, flags } = res.data[0];
         props.setMsgList([
           ...props.msgList,
           userMsg,
           {
             content: `
-        ${countryData.name.common} has a capital in ${countryData.capital}. It is located in ${countryData.region} and is populated by ${countryData.population} people. Fun fact, the Japanese translation of that country is ${countryData.translations.jpn.official} Moreover, you can see the country's flag below.
+        ${name.common} has a capital in ${capital}. It is located in ${region} and is populated by ${population} people. Fun fact, the Japanese translation of that country is ${translations.jpn.official} Moreover, you can see the country's flag below.
         `,
             isBot: true,
             time: new Date(),
-            flag: countryData.flags.svg,
+            flag: flags.svg,
           },
         ]);
       })
@@ -52,17 +53,15 @@ const Input = (props) => {
   return (
     <form onSubmit={handleSubmit} className="form">
       <input
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={handleChange}
         className="input"
         type="text"
         value={message}
         placeholder="Write the name of a country..."
       />
       <button className="chat-button">
-        <i className="fa-lg fas fa-paper-plane"></i>
+        <i className="fa-lg fas fa-paper-plane" />
       </button>
     </form>
   );
 };
-
-export default Input;

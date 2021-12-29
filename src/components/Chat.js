@@ -1,11 +1,10 @@
-// import Message from '../Messages/Message/Message';
-import Header from './Header';
-import Input from './Input';
-import Message from './Message';
-import './Chat.css';
-import { useState } from 'react';
+import { useState } from "react";
+import { Header } from "./Header";
+import { Input } from "./Input";
+import { Message } from "./Message";
+import "./Chat.css";
 
-const Chat = () => {
+export const Chat = () => {
   const [msgList, setMsgList] = useState([
     {
       content: `Hello, I am a Country Bot. I will provide the most important
@@ -25,5 +24,3 @@ const Chat = () => {
     </div>
   );
 };
-
-export default Chat;
